@@ -5,29 +5,27 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
 
 jobs:
-  windows:
-    name: Build Windows (.exe)
-    runs-on: windows-latest
+  build:
+    name: Build 
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Add GitHub to SSH known hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+          node-version: 22
       - name: Install dependencies
         run: yarn install
-      - name: Make Windows build
+      - name: Make build
         run: yarn make
-      - name: Upload artifact (.exe)
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows-build
+          name: ${{ matrix.os }}-build
           path: out/make/**/*
