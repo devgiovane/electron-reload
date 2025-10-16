@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <meta
+            http-equiv="X-Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <title>Auto Reload Page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="container">
+        <header class="header">
+            <img src="duck.png" alt="The Only Duck" width="60px" height="60px"/>
+            <h1 class="header__title">Auto Reload Page!</h1>
+        </header>
+        <main class="main">
+            <div class="main__form">
+                <label>Page url (https://)</label>
+                <input 
+                    id="url"
+                    class="main__form--input"
+                    type="url"
+                    placeholder="Page url"
+                />
+            </div>
+            <div class="main__form">
+                <label>Interval in seconds</label>
+                <input
+                    id="interval"
+                    class="main__form--input"
+                    type="number"
+                    min="2"
+                    max="3600"
+                    placeholder="Interval in seconds"
+                />
+            </div>
+            <div id="log" class="main__logs">
+                <div>~[System] logs</div>
+            </div>
+            <div class="main__actions">
+                <button id="start" class="main__button main__button--start">
+                    Start
+                </button>
+                <button id="stop" class="main__button main__button--stop">
+                    Stop
+                </button>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>
+                Created By 
+                <a class="footer__link" target="_blank" href="https://github.com/giovanesantossilva">Giovane Santos</a> © 
+                <a class="footer__link" target="_blank" href="https://github.com/theonlyducks">The Only Ducks</a>
+            </p>
+        </footer>
+        <script src="./render.js"></script>
+    </body>
+</html>
