@@ -18,8 +18,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Force HTTPS for GitHub
-        run: 'git config --global url."https://github.com/".insteadOf git@github.com:'
+      - name: Add GitHub to SSH known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
       - name: Install dependencies
         run: yarn install
       - name: Make Windows build
