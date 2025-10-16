@@ -18,10 +18,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'yarn'
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Make Windows build
-        run: npm run make
+        run: yarn make
       - name: Upload artifact (.exe)
         uses: actions/upload-artifact@v4
         with:
