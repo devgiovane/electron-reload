@@ -26,6 +26,8 @@ jobs:
         run: yarn package
       - name: Make build
         run: yarn make
+        env:
+          CERT_PASSWORD: ${{ secrets.CERT_PASSWORD }}
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
