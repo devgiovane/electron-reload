@@ -33,7 +33,8 @@ app.whenReady().then(function () {
 });
 
 ipcMain.on('start-bot', function(_event, url, interval) {
-    botProcess = child.spawn('node', ['bot.js', url, interval], {
+    const botPath = path.join(__dirname, 'bot.js')
+    botProcess = child.spawn(process.execPath, [botPath, url, interval], {
         shell: true,
         detached: true,
     });
