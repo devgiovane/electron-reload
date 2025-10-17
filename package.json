@@ -13,7 +13,7 @@
       "certificateFile": "reload.pfx",
       "certificatePassword": "${CERT_PASSWORD}"
     }
-  }
+  },
   "author": "Giovane Santos Silva",
   "license": "MIT",
   "devDependencies": {
